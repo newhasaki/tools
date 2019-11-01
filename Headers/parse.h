@@ -14,6 +14,6 @@
 
 parse_node* parse(std::vector<token> tk);
 void in_order_traversal(parse_node*);
-void post_order_traversal_free(parse_node*);
+void post_order_traversal_free(parse_node**);
 
 #endif /* parse_h */

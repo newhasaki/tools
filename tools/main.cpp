@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     parse_node* node = parse(tokens);   //语法分析，生成抽象语法树，语法树中已处理完优先级
     
     in_order_traversal(node);           //中序遍历语法树
-    post_order_traversal_free(node);    //后序遍历释放树节点内存
+    post_order_traversal_free(&node);    //后序遍历释放树节点内存
     
     return 0;
 }

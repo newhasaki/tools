@@ -14,16 +14,16 @@ static int token_index = -1;
 parse_node* exp(std::vector<token>&);
 
 
-void post_order_traversal_free(parse_node* node){
-    if(nullptr == node->left&&nullptr == node->right){
-        free(node);
-        node = nullptr;
+void post_order_traversal_free(parse_node** node){
+    if(nullptr == (*node)->left&&nullptr == (*node)->right){
+        free(*node);
+        *node = nullptr;
         return;
     }
     
-    post_order_traversal_free(node->left);
-    post_order_traversal_free(node->right);
-    free(node);
+    post_order_traversal_free(&(*node)->left);
+    post_order_traversal_free(&(*node)->right);
+    free(*node);
     node = nullptr;
 }
 
