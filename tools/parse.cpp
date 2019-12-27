@@ -10,9 +10,7 @@
 
 static int token_index = -1;
 
-
 parse_node* exp(std::vector<token>&);
-
 
 void post_order_traversal_free(parse_node** node){
     if(nullptr == (*node)->left&&nullptr == (*node)->right){
@@ -29,15 +27,13 @@ void post_order_traversal_free(parse_node** node){
 
 void in_order_traversal(parse_node* node){
     if(node->tk.type == VARIABLE){
-        std::cout<<node->tk.value;
+        std::cout<<node->tk.value<< " ";
         return;
     }
     
     in_order_traversal(node->left);
-    std::cout<<node->tk.value;
+    std::cout<<node->tk.value << " ";
     in_order_traversal(node->right);
-    
-    
 }
 
 parse_node* factor(std::vector<token>& tk){
